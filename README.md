@@ -4,7 +4,13 @@ USB UVC capture viewer by Jonis Apps. Local video and audio with a dark pink int
 
 ## Downloads
 
-Download packages from this repository's **Releases**. Official website: https://jonisapps.com.
+Download packages from [Releases](https://github.com/Losjonis/Jonis-View/releases):
+
+- [Windows 0.3.0 — portable EXE](https://github.com/Losjonis/Jonis-View/releases/tag/windows-v0.3.0)
+- [macOS 0.1.2 — Intel and Apple Silicon DMG](https://github.com/Losjonis/Jonis-View/releases/tag/macos-v0.1.2)
+- [Linux 0.1.2 — x64 AppImage](https://github.com/Losjonis/Jonis-View/releases/tag/linux-v0.1.2)
+
+Official website: https://jonisapps.com.
 
 | Directory | Version | Platform |
 | --- | --- | --- |
