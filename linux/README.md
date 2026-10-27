@@ -1,40 +1,91 @@
-# Jonis View para Linux
+Jonis View for Linux
 
-Edición independiente con la interfaz oscura y rosa tenue. Mantiene vídeo USB, audio seleccionable, ajustes de calidad (incluido 1440p), pantalla completa y control de volumen. No graba ni sube el vídeo.
+Independent edition featuring a dark interface with soft pink accents. Supports USB video, selectable audio, quality settings (including 1440p), fullscreen mode, and volume control. It does not record or upload video.
 
-## Probar en Linux
+Try it on Linux
 
-Instala Node.js LTS con npm. Abre una terminal en esta carpeta:
+Install Node.js LTS with npm. Open a terminal in this folder:
 
-```sh
+sh
 npm ci
 npm start
-```
 
-Conecta una capturadora USB UVC compatible con tu distribución, selecciónala y pulsa Conectar. En Ajustes selecciona la entrada de audio correspondiente. Mueve el ratón en pantalla completa para mostrar el volumen. F abre pantalla completa, Esc sale y M silencia.
 
-Usa una sesión gráfica de escritorio con las bibliotecas que requiere Electron. El vídeo depende de que Linux reconozca la capturadora; el audio depende de los dispositivos disponibles en el sistema. Si falla, comprueba los permisos del dispositivo, la configuración de audio y si otra aplicación está ocupando la capturadora. Ejecuta como usuario normal, no como root; no desactives el sandbox.
+Connect a USB UVC capture device compatible with your Linux distribution, select it, and click Connect. In Settings, select the corresponding audio input.
 
-## Generar el instalador en Linux
+Move the mouse while in fullscreen mode to display the volume control.
 
-```sh
+Keyboard shortcuts
+F — Enter fullscreen mode.
+Esc — Exit fullscreen mode.
+M — Mute or unmute audio.
+Requirements and troubleshooting
+
+Use a graphical desktop session with the libraries required by Electron.
+
+Video functionality depends on Linux recognizing the capture device. Audio functionality depends on the devices available on your system.
+
+If something fails, check:
+
+Device permissions.
+Audio input settings.
+Whether another application is using the capture device.
+
+Run the application as a regular user, not as root. Do not disable the sandbox.
+
+Build the installer on Linux
+
+Run the following command from the project directory:
+
+sh
 npm run dist
-```
 
-El AppImage x64 aparecerá en `dist`. Dale permiso de ejecución y ábrelo:
 
-```sh
+The x64 AppImage will be created in the dist directory.
+
+Make it executable and launch it:
+
+sh
 chmod +x dist/Jonis-View-0.1.2-x64.AppImage
 ./dist/Jonis-View-0.1.2-x64.AppImage
-```
 
-Algunas distribuciones necesitan instalar su paquete de compatibilidad FUSE para ejecutar AppImage. Si FUSE no está disponible, puedes extraerlo con `./dist/Jonis-View-0.1.2-x64.AppImage --appimage-extract` y ejecutar `./squashfs-root/AppRun`. Las políticas de sandbox de la distribución siguen aplicándose.
+AppImage compatibility
 
-`npm run pack` genera una carpeta de aplicación Linux x64, sin instalador. Copia la carpeta completa a Linux, marca `jonis-view` como ejecutable si el transporte perdió los permisos y ejecútalo desde una sesión gráfica. No basta con copiar solo ese archivo.
+Some Linux distributions require their FUSE compatibility package to run AppImage files.
 
-## Validación
+If FUSE is unavailable, you can extract the application:
 
-```sh
+sh
+./dist/Jonis-View-0.1.2-x64.AppImage --appimage-extract
+
+
+Then launch it using:
+
+sh
+./squashfs-root/AppRun
+
+
+The distribution's sandbox policies still apply.
+
+Build a portable application directory
+
+The following command creates a Linux x64 application directory without an installer:
+
+sh
+npm run pack
+
+
+Copy the entire application directory to the target Linux system.
+
+If the transfer process has removed executable permissions, mark jonis-view as executable. Launch it from a graphical desktop session.
+
+Important: Copying only the jonis-view executable is not sufficient. The entire application directory is required.
+
+Validation
+
+Run the tests:
+
+sh
 npm test
 npm run smoke
 ```
