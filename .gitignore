@@ -1,0 +1,10 @@
+node_modules/
+dist/
+test-results/
+.tools/
+.env*
+*.log
+*.pfx
+*.p12
+*.pem
+.DS_Store

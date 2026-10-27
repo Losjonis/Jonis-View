@@ -1,0 +1,6 @@
+Jonis View invokes FFmpeg as a separate executable for local video processing.
+FFmpeg build: 6.1.1 essentials, www.gyan.dev; GPL v3.
+Source revision: https://github.com/FFmpeg/FFmpeg/commit/e38092ef93
+Distributor and build documentation: https://www.gyan.dev/ffmpeg/builds/
+Binary distribution: https://github.com/eugeneware/ffmpeg-static/releases/tag/b6.1.1
+See included license and build README for third-party components.

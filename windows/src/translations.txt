@@ -1,0 +1,85 @@
+Capturadora|Capture device|Carte de capture|Capture-Gerät|Inspelningsenhet|Устройство захвата
+Buscando dispositivos…|Finding devices…|Recherche des appareils…|Geräte werden gesucht…|Söker enheter…|Поиск устройств…
+Actualizar dispositivos|Refresh devices|Actualiser les appareils|Geräte aktualisieren|Uppdatera enheter|Обновить устройства
+Conectar|Connect|Connecter|Verbinden|Anslut|Подключить
+Conectando…|Connecting…|Connexion…|Verbindung wird hergestellt…|Ansluter…|Подключение…
+Desconectar|Disconnect|Déconnecter|Trennen|Koppla från|Отключить
+Ajustes|Settings|Réglages|Einstellungen|Inställningar|Настройки
+Ajustes de vídeo y audio|Video and audio settings|Réglages vidéo et audio|Video- und Audioeinstellungen|Video- och ljudinställningar|Настройки видео и звука
+Ayuda|Help|Aide|Hilfe|Hjälp|Справка
+Sin señal|No signal|Aucun signal|Kein Signal|Ingen signal|Нет сигнала
+Capturar imagen|Take snapshot|Capturer une image|Bild aufnehmen|Ta en bild|Сделать снимок
+Grabar clip|Record clip|Enregistrer un clip|Clip aufnehmen|Spela in klipp|Записать клип
+Detener clip|Stop recording|Arrêter l’enregistrement|Aufnahme beenden|Stoppa inspelning|Остановить запись
+Guardar últimos segundos|Save recent footage|Sauvegarder les dernières secondes|Letzte Sekunden speichern|Spara senaste sekunderna|Сохранить последние секунды
+Silenciar|Mute|Couper le son|Stummschalten|Stäng av ljudet|Выключить звук
+Activar sonido|Unmute|Activer le son|Ton einschalten|Slå på ljudet|Включить звук
+Volumen en pantalla completa|Fullscreen volume|Volume en plein écran|Lautstärke im Vollbild|Volym i helskärm|Громкость в полноэкранном режиме
+Salir|Exit|Quitter|Verlassen|Avsluta|Выйти
+Cerrar ajustes|Close settings|Fermer les réglages|Einstellungen schließen|Stäng inställningar|Закрыть настройки
+Calidad|Quality|Qualité|Qualität|Kvalitet|Качество
+Automático|Automatic|Automatique|Automatisch|Automatiskt|Автоматически
+Entrada de audio|Audio input|Entrée audio|Audioeingang|Ljudingång|Вход звука
+Sin audio|No audio|Sans audio|Kein Audio|Inget ljud|Без звука
+Salida de audio|Audio output|Sortie audio|Audioausgang|Ljudutgång|Выход звука
+Predeterminada|Default|Par défaut|Standard|Standard|По умолчанию
+Salida predeterminada|Default output|Sortie par défaut|Standardausgang|Standardutgång|Выход по умолчанию
+Desactivado|Off|Désactivé|Aus|Av|Выключено
+15 segundos|15 seconds|15 secondes|15 Sekunden|15 sekunder|15 секунд
+30 segundos|30 seconds|30 secondes|30 Sekunden|30 sekunder|30 секунд
+60 segundos|60 seconds|60 secondes|60 Sekunden|60 sekunder|60 секунд
+Acelera la exportación MP4 si tu GPU es compatible|Speed up MP4 export with a supported GPU|Accélérer l’export MP4 avec un GPU compatible|MP4-Export mit kompatibler GPU beschleunigen|Snabba upp MP4-export med en kompatibel GPU|Ускорение экспорта MP4 на совместимом GPU
+Exportar con GPU|GPU export|Export avec GPU|GPU-Export|Export med GPU|Экспорт через GPU
+Opcional · usa CPU si no está disponible|Optional · CPU fallback|Facultatif · repli sur le CPU|Optional · CPU als Ersatz|Valfritt · CPU som reserv|Необязательно · CPU при недоступности GPU
+Desactivado · exportación con CPU|Off · CPU export|Désactivé · export avec CPU|Aus · CPU-Export|Av · export med CPU|Выключено · экспорт через CPU
+Comprobando GPU…|Checking GPU…|Vérification du GPU…|GPU wird geprüft…|Kontrollerar GPU…|Проверка GPU…
+No disponible · se usará CPU|Unavailable · using CPU|Indisponible · utilisation du CPU|Nicht verfügbar · CPU wird verwendet|Inte tillgängligt · använder CPU|Недоступно · используется CPU
+Carpeta…|Folder…|Dossier…|Ordner…|Mapp…|Папка…
+Abrir|Open|Ouvrir|Öffnen|Öppna|Открыть
+Desconectado|Disconnected|Déconnecté|Getrennt|Frånkopplad|Отключено
+Volumen|Volume|Volume|Lautstärke|Volym|Громкость
+Ajustar|Fit|Adapter|Einpassen|Anpassa|Вписать
+Rellenar|Fill|Remplir|Ausfüllen|Fyll|Заполнить
+Ajustar o rellenar la imagen|Fit or fill the image|Adapter ou remplir l’image|Bild einpassen oder ausfüllen|Anpassa eller fyll bilden|Вписать или заполнить изображение
+Pantalla completa|Fullscreen|Plein écran|Vollbild|Helskärm|Полный экран
+Cerrar ayuda|Close help|Fermer l’aide|Hilfe schließen|Stäng hjälpen|Закрыть справку
+HDMI del dispositivo → capturadora → USB del ordenador.|Device HDMI → capture device → computer USB.|HDMI de l’appareil → carte de capture → USB de l’ordinateur.|HDMI des Geräts → Capture-Gerät → USB des Computers.|Enhetens HDMI → inspelningsenhet → datorns USB.|HDMI устройства → устройство захвата → USB компьютера.
+Selecciona la capturadora y pulsa Conectar. El audio se selecciona en Ajustes.|Select your capture device and click Connect. Choose audio in Settings.|Sélectionnez la carte de capture et cliquez sur Connecter. Choisissez l’audio dans Réglages.|Capture-Gerät auswählen und auf Verbinden klicken. Audio wird unter Einstellungen gewählt.|Välj inspelningsenhet och klicka på Anslut. Välj ljud i Inställningar.|Выберите устройство захвата и нажмите «Подключить». Источник звука выбирается в настройках.
+Si no hay imagen, cierra otras apps de captura y revisa los permisos de cámara de Windows. El contenido con HDCP puede no mostrar imagen.|If there is no picture, close other capture apps and check Windows camera permissions. HDCP content may not display.|Si aucune image n’apparaît, fermez les autres apps de capture et vérifiez les autorisations de caméra Windows. Le contenu HDCP peut ne pas s’afficher.|Wenn kein Bild erscheint, andere Aufnahme-Apps schließen und die Kameraberechtigungen in Windows prüfen. HDCP-Inhalte werden möglicherweise nicht angezeigt.|Om ingen bild visas, stäng andra inspelningsappar och kontrollera kamerabehörigheterna i Windows. HDCP-innehåll kanske inte visas.|Если изображения нет, закройте другие приложения захвата и проверьте разрешения камеры в Windows. Контент с HDCP может не отображаться.
+Imagen|Snapshot|Image|Bild|Bild|Снимок
+Grabar / detener|Record / stop|Enregistrer / arrêter|Aufnehmen / stoppen|Spela in / stoppa|Запись / остановка
+Guardar repetición. Activa la repetición en Ajustes. Los clips incluyen el audio seleccionado, aunque silencies la escucha.|Save replay. Enable replay in Settings. Clips include the selected audio even when playback is muted.|Sauvegarder le replay. Activez-le dans Réglages. Les clips incluent l’audio sélectionné, même si l’écoute est coupée.|Wiederholung speichern. In Einstellungen aktivieren. Clips enthalten das gewählte Audio auch bei stummgeschalteter Wiedergabe.|Spara repris. Aktivera repriser i Inställningar. Klippen innehåller valt ljud även när uppspelningen är tystad.|Сохранить повтор. Включите повторы в настройках. Выбранный звук записывается даже при отключённом звуке воспроизведения.
+No hay capturadoras disponibles|No capture devices available|Aucune carte de capture disponible|Keine Capture-Geräte verfügbar|Inga inspelningsenheter tillgängliga|Нет доступных устройств захвата
+Vista de capturadora|Capture preview|Aperçu de la capture|Aufnahmevorschau|Förhandsvisning|Предпросмотр захвата
+La entrada de audio se ha desconectado. Selecciona otra entrada o vuelve a conectar.|Audio input disconnected. Select another input or reconnect.|L’entrée audio a été déconnectée. Choisissez une autre entrée ou reconnectez-la.|Audioeingang getrennt. Anderen Eingang wählen oder erneut verbinden.|Ljudingången kopplades från. Välj en annan ingång eller anslut igen.|Источник звука отключён. Выберите другой вход или подключите его снова.
+Conecta una capturadora USB y actualiza los dispositivos.|Connect a USB capture device and refresh the device list.|Connectez une carte de capture USB et actualisez les appareils.|USB-Capture-Gerät anschließen und Geräteliste aktualisieren.|Anslut en USB-inspelningsenhet och uppdatera enhetslistan.|Подключите USB-устройство захвата и обновите список устройств.
+La capturadora se ha desconectado. Reconéctala y pulsa Conectar señal.|Capture device disconnected. Reconnect it and click Connect.|La carte de capture a été déconnectée. Reconnectez-la et cliquez sur Connecter.|Capture-Gerät getrennt. Erneut anschließen und auf Verbinden klicken.|Inspelningsenheten kopplades från. Anslut den igen och klicka på Anslut.|Устройство захвата отключено. Подключите его снова и нажмите «Подключить».
+Esperando señal del dispositivo|Waiting for signal|En attente du signal|Warte auf Signal|Väntar på signal|Ожидание сигнала
+Señal conectada|Signal connected|Signal connecté|Signal verbunden|Signal ansluten|Сигнал подключён
+Capturadora USB|USB capture device|Carte de capture USB|USB-Capture-Gerät|USB-inspelningsenhet|USB-устройство захвата
+No se pudo cambiar la salida de audio. Selecciona una salida disponible.|Could not change audio output. Select an available output.|Impossible de changer la sortie audio. Choisissez une sortie disponible.|Audioausgang konnte nicht geändert werden. Verfügbaren Ausgang wählen.|Det gick inte att byta ljudutgång. Välj en tillgänglig utgång.|Не удалось изменить выход звука. Выберите доступный выход.
+Guardando clip…|Saving clip…|Enregistrement du clip…|Clip wird gespeichert…|Sparar klipp…|Сохранение клипа…
+Guardado:|Saved:|Enregistré :|Gespeichert:|Sparat:|Сохранено:
+No se pudo guardar el clip:|Could not save clip:|Impossible d’enregistrer le clip :|Clip konnte nicht gespeichert werden:|Kunde inte spara klippet:|Не удалось сохранить клип:
+Repetición activa|Replay active|Replay actif|Wiederholung aktiv|Repris aktiv|Повтор включён
+Conecta primero la capturadora.|Connect a capture device first.|Connectez d’abord la carte de capture.|Zuerst ein Capture-Gerät verbinden.|Anslut inspelningsenheten först.|Сначала подключите устройство захвата.
+Este equipo no dispone de un codificador compatible.|No compatible encoder is available on this computer.|Aucun encodeur compatible n’est disponible sur cet ordinateur.|Auf diesem Computer ist kein kompatibler Encoder verfügbar.|Ingen kompatibel kodare finns på den här datorn.|На этом компьютере нет совместимого кодировщика.
+No se pudo escribir la captura. Revisa el espacio disponible.|Could not write the recording. Check available disk space.|Impossible d’écrire la capture. Vérifiez l’espace disque disponible.|Aufnahme konnte nicht geschrieben werden. Freien Speicherplatz prüfen.|Kunde inte skriva inspelningen. Kontrollera ledigt diskutrymme.|Не удалось записать захват. Проверьте свободное место на диске.
+Error del codificador|Encoder error|Erreur de l’encodeur|Encoder-Fehler|Kodarfel|Ошибка кодировщика
+No se pudo capturar la imagen.|Could not take snapshot.|Impossible de capturer l’image.|Bild konnte nicht aufgenommen werden.|Kunde inte ta bilden.|Не удалось сделать снимок.
+Procesador|CPU|CPU|CPU|CPU|CPU
+Windows ha bloqueado el acceso. Activa el acceso a la cámara y al micrófono para aplicaciones de escritorio en Configuración > Privacidad y seguridad.|Windows blocked access. Enable camera and microphone access for desktop apps in Settings > Privacy & security.|Windows a bloqué l’accès. Autorisez la caméra et le microphone pour les applications de bureau dans Paramètres > Confidentialité et sécurité.|Windows hat den Zugriff blockiert. Kamera- und Mikrofonzugriff für Desktop-Apps unter Einstellungen > Datenschutz und Sicherheit aktivieren.|Windows blockerade åtkomsten. Tillåt kamera och mikrofon för skrivbordsappar i Inställningar > Sekretess och säkerhet.|Windows заблокировала доступ. Разрешите доступ к камере и микрофону для классических приложений в разделе «Параметры > Конфиденциальность и безопасность».
+No se encuentra el dispositivo. Comprueba la conexión USB y actualiza la lista.|Device not found. Check the USB connection and refresh the list.|Appareil introuvable. Vérifiez la connexion USB et actualisez la liste.|Gerät nicht gefunden. USB-Verbindung prüfen und Liste aktualisieren.|Enheten hittades inte. Kontrollera USB-anslutningen och uppdatera listan.|Устройство не найдено. Проверьте USB-подключение и обновите список.
+No se puede abrir el dispositivo. Cierra OBS, Cámara u otra aplicación que lo esté utilizando.|Cannot open device. Close OBS, Camera or any other app using it.|Impossible d’ouvrir l’appareil. Fermez OBS, Caméra ou toute autre application qui l’utilise.|Gerät kann nicht geöffnet werden. OBS, Kamera oder andere Apps schließen, die es verwenden.|Kan inte öppna enheten. Stäng OBS, Kamera eller andra appar som använder den.|Не удалось открыть устройство. Закройте OBS, «Камеру» или другое приложение, использующее его.
+El dispositivo no admite esta configuración. Prueba el modo Automático.|The device does not support these settings. Try Automatic mode.|L’appareil ne prend pas en charge ces réglages. Essayez le mode Automatique.|Das Gerät unterstützt diese Einstellungen nicht. Automatikmodus versuchen.|Enheten stöder inte dessa inställningar. Prova Automatiskt läge.|Устройство не поддерживает эти настройки. Попробуйте автоматический режим.
+La conexión se interrumpió. Vuelve a conectar la capturadora.|Connection interrupted. Reconnect the capture device.|Connexion interrompue. Reconnectez la carte de capture.|Verbindung unterbrochen. Capture-Gerät erneut verbinden.|Anslutningen avbröts. Anslut inspelningsenheten igen.|Соединение прервано. Подключите устройство захвата снова.
+No se ha podido iniciar la captura. Comprueba el dispositivo y vuelve a intentarlo.|Could not start capture. Check the device and try again.|Impossible de démarrer la capture. Vérifiez l’appareil et réessayez.|Aufnahme konnte nicht gestartet werden. Gerät prüfen und erneut versuchen.|Kunde inte starta inspelningen. Kontrollera enheten och försök igen.|Не удалось начать захват. Проверьте устройство и повторите попытку.
+Dispositivo {number}|Device {number}|Appareil {number}|Gerät {number}|Enhet {number}|Устройство {number}
+Vídeo activo, pero sin audio.|Video active, but no audio.|Vidéo active, mais sans audio.|Video aktiv, aber ohne Audio.|Video aktiv, men inget ljud.|Видео работает, но звука нет.
+Origen no autorizado|Unauthorized source|Source non autorisée|Nicht autorisierte Quelle|Obehörig källa|Недопустимый источник
+Imagen inválida|Invalid image|Image non valide|Ungültiges Bild|Ogiltig bild|Недопустимое изображение
+Ya hay una captura activa|A recording is already active|Une capture est déjà active|Eine Aufnahme läuft bereits|En inspelning är redan aktiv|Запись уже запущена
+Captura cerrada|Recording closed|Capture fermée|Aufnahme geschlossen|Inspelningen är stängd|Запись закрыта
+Fragmento demasiado grande|Chunk too large|Fragment trop volumineux|Datenblock zu groß|Datablocket är för stort|Слишком большой фрагмент
+Material temporal conservado en:|Temporary footage retained at:|Fichiers temporaires conservés dans :|Temporäres Material gespeichert unter:|Tillfälligt material sparat i:|Временные файлы сохранены в:
+Codificador:|Encoder:|Encodeur :|Encoder:|Kodare:|Кодировщик:

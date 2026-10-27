@@ -1,0 +1,50 @@
+{
+  "name": "jonis-view-linux",
+  "version": "0.1.2",
+  "private": true,
+  "description": "Visor de capturadoras USB para Linux",
+  "author": "Jonis",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "smoke": "node scripts/smoke.cjs",
+    "pack": "electron-builder --linux --x64 --dir",
+    "dist": "node scripts/build-linux.cjs"
+  },
+  "build": {
+    "appId": "com.jonisapps.jonisview",
+    "productName": "Jonis View",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "AudioVideo",
+      "icon": "build/icon.png",
+      "executableName": "jonis-view",
+      "artifactName": "Jonis-View-${version}-${arch}.${ext}",
+      "desktop": {
+        "entry": {
+          "Comment": "Visor de vídeo y audio de capturadoras USB",
+          "Keywords": "USB;UVC;HDMI;Video;Capture;",
+          "StartupWMClass": "Jonis View"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "electron": "44.4.5",
+    "electron-builder": "^26.15.3",
+    "sharp": "^0.35.4"
+  },
+  "license": "GPL-3.0-only"
+}

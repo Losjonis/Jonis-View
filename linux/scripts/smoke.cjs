@@ -1,0 +1,71 @@
+const { _electron: electron } = require('@playwright/test');
+const assert = require('node:assert/strict');
+const fs = require('node:fs/promises');
+const path = require('node:path');
+(async () => {
+  await fs.mkdir('test-results', { recursive: true });
+  const userData = await fs.mkdtemp(path.join(require('node:os').tmpdir(), 'jonis-smoke-'));
+  const app = await electron.launch({ args: ['.', '--use-fake-device-for-media-stream', '--use-fake-ui-for-media-stream', `--user-data-dir=${userData}`] });
+  try {
+    const page = await app.firstWindow();
+    const errors = [];
+    page.on('pageerror', e => errors.push(e.message));
+    await page.waitForFunction(() => document.querySelector('#camera').value);
+    await page.screenshot({ path: 'test-results/home.png' });
+    for (const [width, height] of [[680, 440], [900, 600], [1440, 900]]) {
+      await app.evaluate(({ BrowserWindow }, size) => BrowserWindow.getAllWindows()[0].setSize(...size), [width, height]);
+      await page.waitForFunction(([w, h]) => innerWidth <= w && innerHeight <= h, [width, height]);
+      await page.locator('#settings').click();
+      const layout = await page.evaluate(() => {
+        const controls = ['camera', 'connect', 'audio-output', 'fullscreen', 'volume'];
+        return { overflow: document.documentElement.scrollHeight > innerHeight || document.documentElement.scrollWidth > innerWidth, visible: controls.every(id => { const r = document.getElementById(id).getBoundingClientRect(); return r.top >= 0 && r.left >= 0 && r.bottom <= innerHeight && r.right <= innerWidth; }) };
+      });
+      assert.equal(layout.overflow, false, `Overflow at ${width}×${height}`);
+      assert.equal(layout.visible, true, `Clipped controls at ${width}×${height}`);
+      await page.screenshot({ path: `test-results/layout-${width}.png` });
+      await page.locator('#close-settings').click();
+    }
+    await app.evaluate(({ BrowserWindow }) => BrowserWindow.getAllWindows()[0].setSize(1180, 760));
+    await page.locator('#connect').click();
+    await page.waitForFunction(() => document.querySelector('#status').textContent === 'Señal conectada');
+    assert.match(await page.locator('#actual').textContent(), /FPS/);
+    await page.waitForFunction(() => !document.querySelector('#connect').disabled);
+    await page.locator('#settings').click();
+    const audioId = await page.locator('#audio-input option').nth(1).getAttribute('value');
+    await page.locator('#audio-input').selectOption(audioId);
+    await page.waitForFunction(() => document.querySelector('#audio').srcObject?.active);
+    await page.locator('#mute').click();
+    assert.equal(await page.locator('#audio').evaluate(el => el.muted), true);
+    await page.locator('#fullscreen').click();
+    await page.waitForFunction(() => document.body.classList.contains('fullscreen'));
+    await page.locator('#fullscreen-volume').fill('42');
+    assert.equal(await page.locator('#audio').evaluate(el => el.volume), 0.42);
+    assert.equal(await page.locator('#volume').inputValue(), '42');
+    assert.equal(await page.locator('#audio').evaluate(el => el.muted), false);
+    await page.locator('#fullscreen-mute').click();
+    assert.equal(await page.locator('#audio').evaluate(el => el.muted), true);
+    await page.locator('#fullscreen-mute').click();
+    assert.equal(await page.locator('#audio').evaluate(el => el.muted), false);
+    assert.equal(await page.locator('#mute').getAttribute('aria-label'), 'Silenciar');
+    await page.locator('#fullscreen-volume').dblclick();
+    assert.equal(await page.locator('body').evaluate(el => el.classList.contains('fullscreen')), true);
+    await page.locator('#fullscreen-volume').fill('42');
+    await page.screenshot({ path: 'test-results/fullscreen-volume.png' });
+    await page.keyboard.press('Escape');
+    await page.waitForFunction(() => !document.body.classList.contains('fullscreen'));
+    await page.locator('#profile').selectOption('720p60');
+    await page.waitForFunction(() => document.querySelector('#actual').textContent.includes('1280') && !document.querySelector('#connect').disabled);
+    await page.screenshot({ path: 'test-results/capture.png' });
+    await page.locator('#connect').click();
+    assert.equal(await page.locator('#video').evaluate(el => el.srcObject), null);
+    assert.equal(await page.locator('#audio').evaluate(el => el.srcObject), null);
+    await page.reload();
+    assert.equal(await page.locator('#profile').inputValue(), '720p60');
+    assert.equal(await page.locator('#volume').inputValue(), '42');
+    assert.equal(await page.locator('#fullscreen-volume').inputValue(), '42');
+    await page.locator('#help').click();
+    assert.equal(await page.locator('#help-dialog').evaluate(el => el.open), true);
+    assert.deepEqual(errors, []);
+    console.log('PASS: synthetic video/audio, actual format, mute, fullscreen/Esc, format restart, track release, saved preferences, help; no renderer errors.');
+  } finally { await app.close(); }
+})().catch(error => { console.error(error); process.exitCode = 1; });

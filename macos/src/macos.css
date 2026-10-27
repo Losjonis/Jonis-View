@@ -1,0 +1,24 @@
+/* macOS edition: native window controls, quiet surfaces and a dark video canvas. */
+:root{color-scheme:light;--bg:#f4f2f4;--line:#dcd8df;--pink:#ba7192;--text:#302d34;--muted:#817b86;font:12px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{grid-template-rows:64px minmax(0,1fr) 50px}
+.toolbar{background:linear-gradient(#faf9fb,#eeecf0);gap:12px;-webkit-app-region:drag;padding:0 18px;box-shadow:0 1px 0 #fff inset}
+.toolbar button,.toolbar select{ -webkit-app-region:no-drag }
+body.native-mac .toolbar{padding-left:94px}
+.brand{margin-right:2px}.brand img{width:32px;height:32px}
+button{border-radius:7px}button:hover{background:#e3dfe6}
+.icon-button,.tool{color:#736c79}.source{width:280px}.source select{font-weight:550}
+select{background:#fff;color:var(--text);border:1px solid #d8d3dd;border-radius:7px;box-shadow:0 1px 2px #30213908}
+.source select:hover,.source select:focus{background:#fff9;border-color:#d5d0d9}
+.primary{background:linear-gradient(#ca8da9,#bb7897);color:white;border:1px solid #af6d8c;box-shadow:0 1px 2px #6c335e20,inset 0 1px #ffffff30}
+.primary:hover{background:#b96c91}.primary.connected{background:#f0e0e9;border-color:#d7b6c8;color:#8b486b}
+.tool[aria-expanded=true]{background:#e9dbe4;color:#915071}
+.stage,.viewer-panel{background:#141416}.empty{color:#959099}.empty svg{stroke:#59505c}.empty .signal{stroke:#c597b0}
+aside{width:246px;background:linear-gradient(130deg,#f7f5f8,#ebe8ef);padding:20px;border-left-color:#d5d0da}
+.settings-heading{margin-bottom:24px}h2{font-size:13px}label{color:#77707e;font-weight:500}
+footer{background:linear-gradient(#f7f5f8,#eeebf0);padding-left:20px}#actual{color:#918995}#status-dot{background:#aaa2b0}#status-dot.live{background:#9c7396}
+input[type=range]{height:20px;accent-color:#b97c9b}kbd{font-family:inherit;color:inherit;border-color:#b9afbd}
+#notice{background:#fcf6fa;color:#74465f;border-color:#d3adc3;border-radius:10px;box-shadow:0 4px 20px #0002}
+dialog{background:#f7f4f8;color:var(--text);border:1px solid #ddd5e1;border-radius:14px;box-shadow:0 20px 80px #0005}dialog p{color:#736a79}
+.fullscreen-controls{background:#28252bec;border-color:#ffffff26;border-radius:14px;backdrop-filter:blur(24px);box-shadow:0 8px 30px #0005}.overlay button{background:#ffffff0d;border-color:#ffffff24;color:#e9e2ec;border-radius:8px}.overlay button:hover{background:#ffffff20}.overlay .icon-button{color:#e9d8e5}.overlay kbd{border-color:#817586;color:#c7bbce}
+@media(max-width:800px){body.native-mac .toolbar{padding-left:88px}.toolbar{gap:6px;padding-right:10px}.brand{display:none}.source{width:auto;flex:1}aside{width:220px;padding:15px}}
+@media(max-height:500px){body{grid-template-rows:58px minmax(0,1fr) 42px}.settings-heading{margin-bottom:8px}aside{padding-top:12px}}

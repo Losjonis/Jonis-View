@@ -1,0 +1,77 @@
+{
+  "name": "jonis-view-macos",
+  "version": "0.1.2",
+  "private": true,
+  "description": "Visor de capturadoras USB para macOS",
+  "author": "Jonis",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/*.test.cjs",
+    "smoke": "node scripts/smoke.cjs",
+    "pack": "node scripts/build-mac.cjs --dir",
+    "dist": "node scripts/build-mac.cjs"
+  },
+  "build": {
+    "appId": "com.jonisapps.jonisview",
+    "productName": "Jonis View",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.video",
+      "icon": "build/icon.png",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "hardenedRuntime": true,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "extendInfo": {
+        "NSCameraUsageDescription": "Jonis View necesita acceder a tu capturadora USB para mostrar su vídeo.",
+        "NSMicrophoneUsageDescription": "Jonis View necesita acceder a la entrada de audio que selecciones para reproducir el sonido de tu capturadora."
+      }
+    },
+    "dmg": {
+      "title": "Jonis View",
+      "contents": [
+        {
+          "x": 130,
+          "y": 150
+        },
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "artifactName": "${productName}-${version}-${arch}.${ext}"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "electron": "^44.4.5",
+    "electron-builder": "^26.15.3",
+    "sharp": "^0.35.4"
+  },
+  "license": "GPL-3.0-only"
+}
