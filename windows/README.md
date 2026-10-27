@@ -1,19 +1,19 @@
 # Jonis View
 
-Visor de capturadoras USB UVC para Windows, con interfaz oscura en rosa tenue. Vídeo directo, audio de entrada y salida seleccionable, volumen, pantalla completa (F, Esc, doble clic), ajuste/relleno y preferencias locales. Permite guardar imágenes PNG, clips MP4 y los últimos segundos de la señal. Todo se procesa localmente.
+USB UVC capture device viewer for Windows, featuring a dark interface with soft pink accents. Live video, selectable audio input and output, volume control, fullscreen mode (F, Esc, double-click), fit/fill display options, and local preferences. Supports saving PNG screenshots, MP4 clips, and the last few seconds of the signal. Everything is processed locally.
 
-## Ejecutar
+## Run
 
-Requiere Node.js LTS y Windows 10/11 x64.
+Requires Node.js LTS and Windows 10/11 x64.
 
 ```powershell
 npm ci
 npm start
 ```
 
-Conecta dispositivo HDMI → entrada HDMI de la capturadora → USB del ordenador. Selecciona la fuente y pulsa **Conectar señal**. Para oír el dispositivo, selecciona su entrada de audio; el micrófono no se activa automáticamente. Cierra otros programas que utilicen la capturadora.
+Connect your device's HDMI output → the capture card's HDMI input → your computer's USB port. Select the source and click **Connect Signal**. To hear the device, select its audio input; the microphone is not enabled automatically. Close any other applications using the capture device.
 
-## Construir y verificar
+## Build and verify
 
 ```powershell
 npm test
@@ -22,30 +22,30 @@ npm run pack
 npm run dist
 ```
 
-`pack` genera `dist/win-unpacked/Jonis View.exe`; `dist` genera el ejecutable portable. `smoke` prueba la aplicación Electron con vídeo y audio sintéticos, sin activar hardware. Microsoft Store: consulta [STORE.md](STORE.md).
+`pack` creates `dist/win-unpacked/Jonis View.exe`; `dist` creates the portable executable. `smoke` tests the Electron application with synthetic video and audio, without activating hardware. For the Microsoft Store, see [STORE.md](STORE.md).
 
-La resolución y FPS elegidos son preferencias; la barra superior muestra los valores negociados realmente. La latencia depende de hardware, formato y Chromium; no se promete latencia cero. HDCP no se elude. Una imagen negra procedente de la capturadora no implica que el USB esté desconectado. La comprobación final de sonido, estabilidad, sincronización y retraso requiere el dispositivo físico.
+The selected resolution and FPS are preferences; the top bar displays the values actually negotiated. Latency depends on the hardware, format, and Chromium; zero latency is not guaranteed. HDCP is not bypassed. A black image from the capture device does not necessarily mean the USB device is disconnected. Final verification of sound, stability, synchronization, and delay requires the physical device.
 
-## Arquitectura
+## Architecture
 
-Electron con renderer aislado y sandbox, sin Node en la interfaz. Captura UVC por MediaDevices/getUserMedia, reproducción de vídeo y audio; grabación opcional con MediaRecorder y exportación local mediante FFmpeg. Permisos limitados a medios y a la página local de la aplicación; navegación externa bloqueada. `powerSaveBlocker` mantiene el monitor encendido mientras hay captura. Preferencias en localStorage; los dispositivos se liberan al desconectar o cerrar.
+Electron with an isolated, sandboxed renderer and no Node.js access in the UI. UVC capture via MediaDevices/getUserMedia, video and audio playback, optional recording with MediaRecorder, and local export using FFmpeg. Permissions are restricted to media devices and the application's local page; external navigation is blocked. `powerSaveBlocker` keeps the display awake during capture. Preferences are stored in localStorage; devices are released when disconnecting or closing the application.
 
-## Capturas y clips (Windows 0.2.0)
+## Screenshots and clips (Windows 0.2.0)
 
-P guarda un PNG a la resolución recibida. R inicia o detiene un clip MP4 H.264/AAC. En Ajustes, activa la repetición de 15, 30 o 60 segundos; B guarda ese intervalo (o el disponible si acabas de activarla). Al guardar una repetición comienza un nuevo historial. La repetición está desactivada por defecto y se desactiva al cambiar de fuente, formato o audio.
+P saves a PNG at the received resolution. R starts or stops an H.264/AAC MP4 recording. In Settings, enable a 15-, 30-, or 60-second replay buffer; B saves that interval (or whatever is available if you have just enabled it). Saving a replay starts a new history buffer. Replay is disabled by default and is turned off when changing the source, format, or audio.
 
-Se guarda en Vídeos/Jonis View; Ajustes permite cambiar y abrir la carpeta. El volumen y silencio afectan a la escucha, no al audio grabado. Los controles también aparecen en pantalla completa. El contador indica grabación manual. Desconectar o cerrar finaliza el clip; espera mientras se exporta.
+Files are saved to Videos/Jonis View; Settings lets you change and open the folder. Volume and mute affect monitoring, not recorded audio. Controls are also available in fullscreen mode. The counter indicates manual recording. Disconnecting or closing finalizes the clip; wait while it is being exported.
 
-La repetición utiliza segmentos temporales en disco con un límite aproximado de 72 segundos (más el clip que se esté exportando). Se eliminan al detenerla normalmente. Un cierre forzado puede dejar temporales; si falla la exportación se conserva el material y se muestra su ubicación para recuperarlo. La grabación manual ocupa disco según su duración. La exportación MP4 usa CPU y puede tardar, especialmente a 1440p/4K.
+Replay uses temporary disk segments with an approximate limit of 72 seconds (plus any clip currently being exported). These are deleted when replay is stopped normally. A forced shutdown may leave temporary files behind; if export fails, the footage is preserved and its location is displayed for recovery. Manual recordings use disk space according to their duration. MP4 export uses the CPU and may take time, especially at 1440p/4K.
 
-Prueba automática de archivos: `node scripts/clips-check.cjs`. Valida PNG, decodificación MP4 con audio, duración de repetición y finalización al desconectar. La sincronización con hardware real requiere una prueba con tu capturadora.
+Automated file test: `node scripts/clips-check.cjs`. It validates PNG files, MP4 decoding with audio, replay duration, and finalization on disconnect. Synchronization with real hardware requires testing with your capture device.
 
-## Exportación GPU (Windows 0.2.2)
+## GPU export (Windows 0.2.2)
 
-Ajustes → Exportar con GPU habilita la codificación H.264 mediante NVIDIA NVENC, Intel Quick Sync o AMD AMF, según disponibilidad. Está desactivada por defecto y recuerda la elección. La app prueba los codificadores con fotogramas reales; si la GPU falla al exportar, reintenta con CPU y muestra el codificador utilizado. Afecta a clips y repeticiones MP4, no a capturas PNG ni a la captura temporal. El audio sigue codificándose con CPU. La velocidad y calidad dependen del hardware, los controladores y el formato; no elimina toda la espera de guardado. En 0.2.3 se corrigió un falso negativo de detección de NVENC: la prueba usa 640 × 480, ya que NVIDIA puede rechazar 128 × 128. Verificado en una RTX 3060 con exportación H.264 a 1080p60 y decodificación del MP4 resultante.
+Settings → Export with GPU enables H.264 encoding through NVIDIA NVENC, Intel Quick Sync, or AMD AMF, depending on availability. It is disabled by default and remembers your selection. The app tests encoders using real frames; if GPU export fails, it retries using the CPU and displays the encoder used. This affects MP4 clips and replays, not PNG screenshots or temporary capture. Audio is still encoded using the CPU. Speed and quality depend on hardware, drivers, and format; this does not eliminate all saving delays. Version 0.2.3 fixed a false negative in NVENC detection: the test uses 640 × 480 because NVIDIA may reject 128 × 128. Verified on an RTX 3060 with H.264 export at 1080p60 and successful decoding of the resulting MP4.
 
-## Idioma automático (Windows 0.3.0)
+## Automatic language selection (Windows 0.3.0)
 
-La app utiliza el primer idioma preferido de Windows al iniciarse. Admite español, inglés, francés, alemán, sueco y ruso, igual que la web. Las variantes regionales comparten traducción (por ejemplo, es-MX y es-ES). Si el idioma no está incluido, usa inglés. Reinicia la app tras cambiar el idioma de Windows. No se modifican las preferencias del sistema ni los nombres de los dispositivos. Los atajos físicos F/M/P/R/B también funcionan con una distribución de teclado rusa.
+The app uses Windows' first preferred language at startup. It supports Spanish, English, French, German, Swedish, and Russian, just like the website. Regional variants share the same translation (for example, es-MX and es-ES). If the language is not supported, the app defaults to English. Restart the app after changing the Windows language. System preferences and device names are not modified. The physical F/M/P/R/B shortcuts also work with a Russian keyboard layout.
 
-El catálogo editable está en src/translations.txt (columnas es, en, fr, de, sv, ru). Ejecuta npm run build:i18n tras modificarlo y npm run test:languages para probar los seis idiomas y el respaldo en inglés.
+The editable translation catalog is located at `src/translations.txt` (columns: es, en, fr, de, sv, ru). Run `npm run build:i18n` after editing it, and `npm run test:languages` to test all six languages and the English fallback.
