@@ -31,7 +31,7 @@ npm start
 npm run dist
 ```
 
-Build each edition on its native OS. See its README for platform requirements. Microsoft Store packaging needs your own Partner Center identity environment variables.
+Build each edition on its native OS. See its README for platform requirements.
 
 ## Hardware and privacy
 
