@@ -1,39 +1,39 @@
 # Jonis View · macOS
 
-Proyecto independiente de la edición Windows. Misma captura USB, perfiles hasta 1440p/4K según el dispositivo, audio, ajustes locales y volumen en pantalla completa. Interfaz clara, detalles rosa, controles nativos de ventana y menú de macOS.
+An independent project separate from the Windows edition. It offers the same USB capture functionality, profiles up to 1440p/4K depending on the device, audio, local settings, and volume control in fullscreen mode. Light interface with pink accents, native window controls, and a macOS menu.
 
-## Probar
+## Try it
 
-Instala Node.js LTS en un Mac, abre Terminal en esta carpeta y ejecuta:
+Install Node.js LTS on a Mac, open Terminal in this folder, and run:
 
 ```sh
 npm ci
 npm start
 ```
 
-Conecta una capturadora compatible con UVC en macOS. Pulsa Conectar y acepta el permiso de Cámara. Para escucharla, selecciona su entrada en Ajustes y acepta Micrófono. Si deniegas un permiso, actívalo en Ajustes del Sistema > Privacidad y seguridad y reinicia la app.
+Connect a UVC capture device compatible with macOS. Click **Connect** and grant Camera permission. To hear its audio, select the corresponding input in Settings and grant Microphone permission. If you deny a permission, enable it under **System Settings > Privacy & Security** and restart the app.
 
-F: pantalla completa. M: silenciar. Esc: salir. En pantalla completa mueve el ratón para mostrar el volumen. Cmd+, abre ajustes; Cmd+Q sale. Cerrar la ventana conserva la aplicación en el Dock; pulsar su icono la abre de nuevo.
+**F:** Enter fullscreen. **M:** Mute or unmute. **Esc:** Exit fullscreen. In fullscreen mode, move the mouse to display the volume control. **Cmd+,** opens Settings; **Cmd+Q** quits. Closing the window keeps the app running in the Dock; click its Dock icon to reopen the window.
 
-## Instalador para Mac
+## Mac installer
 
-En un Mac:
+On a Mac, run:
 
 ```sh
 npm run dist
 ```
 
-Genera DMG y ZIP en `dist`, separados para Apple Silicon (arm64) e Intel (x64). `npm run pack` genera la aplicación sin instalador. El identificador provisional es `com.jonisapps.jonisview`; debe coincidir con el que registres en tu cuenta Apple antes de publicar.
+This generates DMG and ZIP files in `dist`, separately for Apple Silicon (arm64) and Intel (x64). `npm run pack` generates the application without an installer. The provisional bundle identifier is `com.jonisapps.jonisview`; it must match the identifier registered in your Apple account before publishing.
 
-La firma Developer ID y la notarización requieren una cuenta Apple Developer y credenciales configuradas en el Mac de compilación. No se incluyen certificados ni credenciales. Sin ellos el resultado no es una distribución firmada/notarizada y Gatekeeper puede bloquearla. Configuración: https://www.electron.build/v26/docs/code-signing-mac/
+Developer ID signing and notarization require an Apple Developer account and credentials configured on the build Mac. No certificates or credentials are included. Without them, the resulting build is not signed or notarized for distribution, and Gatekeeper may block it. Configuration: https://www.electron.build/v26/docs/code-signing-mac/
 
-Esta configuración prepara distribución directa por DMG, no un envío a la Mac App Store. Esa tienda requiere un perfil MAS, sandbox, certificados y perfiles de aprovisionamiento propios, además de pruebas y revisión.
+This configuration prepares direct distribution via DMG, not submission to the Mac App Store. The store requires a dedicated MAS build profile, sandboxing, certificates, and provisioning profiles, as well as testing and review.
 
-## Validación
+## Validation
 
 ```sh
 npm test
 npm run smoke
 ```
 
-La prueba funcional usa cámara y audio sintéticos y comprueba tamaños de ventana, captura, audio, pantalla completa, volumen y preferencias. Se ha preparado una previsualización en Windows; los permisos nativos, menús, firma y funcionamiento con capturadoras reales necesitan validación en macOS. Resolución, frecuencia y latencia dependen del dispositivo y su compatibilidad.
+The functional test uses synthetic camera and audio sources and checks window sizes, capture, audio, fullscreen mode, volume, and preferences. A preview has been prepared on Windows; native permissions, menus, signing, and operation with real capture devices still need to be validated on macOS. Resolution, frame rate, and latency depend on the device and its compatibility.
